@@ -33,7 +33,7 @@ class Character(models.Model):
 
 
 class Kart(models.Model):
-    def stat_field(self):
+    def stat_field():
         return models.IntegerField(
             default=1,
             validators=[
@@ -49,7 +49,7 @@ class Kart(models.Model):
     handling = stat_field()
     drift = stat_field()
 
-    weight = models.ForeignKey(to=Weight)
+    weight = models.ForeignKey(to=Weight, on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
